@@ -1,9 +1,7 @@
-# chartjs-plugin-zoom
+# chartjs-plugin-easy-zoom
 
-A zoom and pan plugin for Chart.js. Currently requires Chart.js >= 2.6.0
-
-Panning can be done via the mouse or with a finger.
-Zooming is done via the mouse wheel or via a pinch gesture. [Hammer JS](http://hammerjs.github.io/) is used for gesture recognition.
+A zoom plugin for Chart.js. Currently requires Chart.js >= 2.6.0
+Zooming is done via the mouse wheel or via a pinch gesture.
 
 [Live Codepen Demo](http://codepen.io/pen/PGabEK)
 
@@ -12,27 +10,7 @@ Zooming is done via the mouse wheel or via a pinch gesture. [Hammer JS](http://h
 To configure the zoom and pan plugin, you can simply add new config options to your chart config.
 
 ```javascript
-{
-	// Container for pan options
-	pan: {
-		// Boolean to enable panning
-		enabled: true,
-
-		// Panning directions. Remove the appropriate direction to disable 
-		// Eg. 'y' would only allow panning in the y direction
-		mode: 'xy',
-		rangeMin: {
-			// Format of min pan range depends on scale type
-			x: null,
-			y: null
-		},
-		rangeMax: {
-			// Format of max pan range depends on scale type
-			x: null,
-			y: null
-		}
-	},
-	
+{	
 	// Container for zoom options
 	zoom: {
 		// Boolean to enable zooming
@@ -53,7 +31,12 @@ To configure the zoom and pan plugin, you can simply add new config options to y
 			// Format of max zoom range depends on scale type
 			x: null,
 			y: null
-		}
+		},
+        distanceMin: {
+            // Minimum distance can zoom
+            x: null,
+            y: null,
+        }
 	}
 }
 ```
@@ -63,13 +46,6 @@ To configure the zoom and pan plugin, you can simply add new config options to y
 ### chart.resetZoom()
 
 Programmatically resets the zoom to the default state. See [samples/zoom-time.html](samples/zoom-time.html) for an example.
-
-## To-do Items
-The following features still need to be done:
-* Pan limits. We should be able to set limits for all axes or for a single axis, identified by ID, that are the maximum and minimum values, in data values, that can be panned to.
-* Zoom limits. Similar to pan limits but for zooming
-* Panning of category scales (the ones that use strings as labels)
-* Zooming of category scales (the ones that use strings as labels)
 
 ## Installation
 

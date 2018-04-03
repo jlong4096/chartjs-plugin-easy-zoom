@@ -38,7 +38,6 @@ gulp.task('watch', watchTask);
 function buildTask() {
   var nonBundled = browserify('./src/chart.zoom.js')
     .ignore('chart.js')
-    .ignore('hammerjs')
     .bundle()
     .pipe(source('chartjs-plugin-zoom.js'))
     .pipe(insert.prepend(header))
