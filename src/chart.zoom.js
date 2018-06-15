@@ -198,8 +198,6 @@ var zoomPlugin = {
 					chartInstance.zoom._dragZoomEnd = event;
 					chartInstance.update(0);
 				}
-
-				chartInstance.update(0);
 			};
 			node.addEventListener('mousemove', chartInstance.zoom._mouseMoveHandler);
 
@@ -276,4 +274,3 @@ var zoomPlugin = {
 };
 
 module.exports = zoomPlugin;
-Chart.pluginService.register(zoomPlugin);
